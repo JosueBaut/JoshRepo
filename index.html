@@ -1,0 +1,145 @@
+<!-- file: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Favorite Musicians</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d9c3a3; /* bolder light brown background */
+      color: #3b3b3b;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4a5a6a; /* soft blue-gray */
+    }
+
+    .artist-list {
+      background-color: #fdfcfb;
+      border: 1px solid #c2a98b; /* light brown border */
+      border-radius: 10px;
+      margin: 10px auto;
+      padding: 15px;
+      max-width: 700px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .artist-list:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .artist-list h2 {
+      color: #7da0b6; /* pastel blue */
+      margin-top: 0;
+    }
+
+    .artist-list p {
+      line-height: 1.5;
+    }
+
+    .vote-button {
+      cursor: pointer;
+      background-color: #7da0b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 15px;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .vote-button:hover {
+      background-color: #4a5a6a;
+    }
+
+    .votes {
+      font-weight: bold;
+      color: #4a5a6a;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Favorite Musicians</h1>
+  <div id="artistList"></div>
+
+  <script>
+    // Helper function to generate a random number between 341 and 1200
+    function randomVotes() {
+      return Math.floor(Math.random() * (1200 - 341 + 1)) + 341;
+    }
+
+    const artists = [
+      {
+        id: 'laufey',
+        name: 'Laufey',
+        description: 'Laufey is an Icelandic singer, songwriter, and cellist known for her smooth jazz-inspired sound and gentle voice. Her music blends classical and modern styles, often exploring themes of love, nostalgia, and growing up.',
+        song: 'From The Start',
+        votes: randomVotes()
+      },
+      {
+        id: 'grentperez',
+        name: 'Grentperez',
+        description: 'Grentperez is an Australian singer-songwriter known for his warm voice and soulful pop sound. His songs often mix gentle guitar melodies with heartfelt lyrics about love and life.',
+        song: 'Cherry Wine',
+        votes: randomVotes()
+      },
+      {
+        id: 'anri',
+        name: 'Anri',
+        description: 'Anri is a Japanese singer known for her city pop style that became popular in the 1980s. Her music features smooth vocals, jazzy instrumentals, and upbeat rhythms that capture a nostalgic summer feeling.',
+        song: 'Remember Summer Days',
+        votes: randomVotes()
+      },
+      {
+        id: 'rex',
+        name: 'Rex Orange County',
+        description: 'Rex Orange County is a British singer-songwriter known for his blend of indie pop, soul, and jazz influences. His songs often explore emotions, relationships, and self-discovery with a warm and honest tone.',
+        song: 'Best Friend',
+        votes: randomVotes()
+      },
+      {
+        id: 'daniel',
+        name: 'Daniel Caesar',
+        description: 'Daniel Caesar is a Canadian singer-songwriter known for his smooth R&B sound and soulful voice. His music often explores themes of love, faith, and personal growth.',
+        song: 'Best Part',
+        votes: randomVotes()
+      }
+    ];
+
+    function renderArtists() {
+      const list = document.getElementById('artistList');
+      list.innerHTML = '';
+      artists.sort((a, b) => b.votes - a.votes);
+      artists.forEach((artist, index) => {
+        const item = document.createElement('div');
+        item.className = 'artist-list';
+        item.innerHTML = `
+          <h2>${index + 1}. ${artist.name}</h2>
+          <p>${artist.description}</p>
+          <p><strong>Most Streamed Song:</strong> "${artist.song}"</p>
+          <button class="vote-button" onclick="voteForArtist('${artist.id}')">Vote</button>
+          <span class="votes">Votes: ${artist.votes}</span>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function voteForArtist(id) {
+      const artist = artists.find(a => a.id === id);
+      artist.votes++;
+      renderArtists();
+    }
+
+    renderArtists();
+  </script>
+</body>
+</html>
