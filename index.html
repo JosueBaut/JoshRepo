@@ -1,145 +1,154 @@
-<!-- file: index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Favorite Musicians</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joshua Adam Bautista — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #d9c3a3; /* bolder light brown background */
-      color: #3b3b3b;
-      padding: 20px;
-      margin: 0;
+    :root{
+      --accent:#0f766e;
+      --muted:#94a3b8;
+      --card:#1e293b;
+      --bg:#0f172a;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
     }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#e2e8f0;line-height:1.45}
+    .container{max-width:980px;margin:40px auto;padding:24px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:92px;height:92px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px}
+    h1{margin:0;font-size:28px}
+    .sub{color:var(--muted);margin-top:6px}
+    .contact{margin-left:auto;text-align:right}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.4);margin-top:18px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .section{margin-bottom:16px}
+    .section h3{margin:0 0 8px 0;font-size:16px}
+    ul{margin:0;padding-left:18px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#334155;padding:6px 10px;border-radius:999px;font-size:13px;color:#e2e8f0}
+    .job{margin-bottom:14px}
+    .muted{color:var(--muted)}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:820px){.grid{grid-template-columns:1fr;}.contact{text-align:left;margin-left:0}}
 
-    h1 {
-      text-align: center;
-      color: #4a5a6a; /* soft blue-gray */
-    }
-
-    .artist-list {
-      background-color: #fdfcfb;
-      border: 1px solid #c2a98b; /* light brown border */
-      border-radius: 10px;
-      margin: 10px auto;
-      padding: 15px;
-      max-width: 700px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .artist-list:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .artist-list h2 {
-      color: #7da0b6; /* pastel blue */
-      margin-top: 0;
-    }
-
-    .artist-list p {
-      line-height: 1.5;
-    }
-
-    .vote-button {
-      cursor: pointer;
-      background-color: #7da0b6;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 15px;
-      margin-top: 10px;
-      font-weight: bold;
-      transition: background-color 0.2s ease;
-    }
-
-    .vote-button:hover {
-      background-color: #4a5a6a;
-    }
-
-    .votes {
-      font-weight: bold;
-      color: #4a5a6a;
-      margin-left: 10px;
-    }
+    /* simple print-friendly tweaks */
+    @media print{body{background:white} .container{margin:0;padding:0} .card{box-shadow:none} a[href]:after{content:""}}
   </style>
 </head>
 <body>
-  <h1>My Favorite Musicians</h1>
-  <div id="artistList"></div>
+  <div class="container">
+    <header>
+      <div class="avatar">JB</div>
+      <div>
+        <h1>Joshua Adam Bautista</h1>
+        <div class="sub">High school student • Aspiring cinematographer & team player</div>
+      </div>
+      <div class="contact">
+        <div>Ho’okanhe ST, Mililani, HI 96789</div>
+        <div class="muted">(808) 779-2762 • <a href="mailto:jobautista@hanalani.org">jobautista@hanalani.org</a></div>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="section">
+        <h3>Objective</h3>
+        <p class="muted">A motivated high school student seeking a part-time position to develop professional skills and contribute to a positive team environment. Eager to apply strong problem-solving and teamwork skills and a commitment to excellence.</p>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="section">
+            <h3>Education</h3>
+            <p><strong>Hanalani Schools — Mililani, HI</strong><br>
+            Expected Graduation: <strong>May 2028</strong><br>
+            GPA: <strong>3.4</strong><br>
+            Relevant Courses: AI and Digital Marketing</p>
+          </div>
+
+          <div class="section">
+            <h3>Skills</h3>
+            <div class="skill-list">
+              <span class="chip">Live Cinematography</span>
+              <span class="chip">Production</span>
+              <span class="chip">Teamwork</span>
+              <span class="chip">Adhering to Instruction</span>
+              <span class="chip">Situational Assessment</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Experience</h3>
+            <div class="job">
+              <strong>New Hope Oahu — Honolulu, HI</strong><br>
+              <span class="muted">July 2023 – November 2025</span>
+              <ul>
+                <li>Worked in an ever-changing environment where teamwork is key.</li>
+                <li>Collaborated with experienced cinematographers to further spread the Gospel.</li>
+                <li>Worked with team members to complete live projects.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <strong>New Hope Canoe Club — Honolulu, HI</strong><br>
+              <span class="muted">April 2025 – September 2025</span>
+              <ul>
+                <li>Canoe paddler; worked with a team of six in harsh weather conditions over long distances.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Extracurricular Activities</h3>
+            <ul>
+              <li>Hanalani Music Club — Tuba player (2 years)</li>
+              <li>Community Service / Volunteer — New Hope Oahu (450+ hours). Projects include Easter service at Blaisdell and Sunday services.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside>
+          <div class="section">
+            <h3>Highlights</h3>
+            <ul>
+              <li>450+ volunteer hours</li>
+              <li>Strong live-production experience</li>
+              <li>Reliable team member in high-pressure situations</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>References</h3>
+            <p class="muted">Available upon request.</p>
+          </div>
+
+          <div class="section">
+            <h3>Download</h3>
+            <p><a href="#" onclick="downloadResume()">Download printable resume (PDF)</a></p>
+          </div>
+        </aside>
+      </div>
+
+    </main>
+
+    <footer>
+      Built from Joshua's resume • Want layout or color changes? Reply and I’ll update it.
+    </footer>
+  </div>
 
   <script>
-    // Helper function to generate a random number between 341 and 1200
-    function randomVotes() {
-      return Math.floor(Math.random() * (1200 - 341 + 1)) + 341;
+    function downloadResume(){
+      // simple placeholder: open the attached PDF in a new tab if available
+      const pdfPath = 'Joshua.B Resume.pdf';
+      const a = document.createElement('a');
+      a.href = pdfPath;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.click();
     }
-
-    const artists = [
-      {
-        id: 'laufey',
-        name: 'Laufey',
-        description: 'Laufey is an Icelandic singer, songwriter, and cellist known for her smooth jazz-inspired sound and gentle voice. Her music blends classical and modern styles, often exploring themes of love, nostalgia, and growing up.',
-        song: 'From The Start',
-        votes: randomVotes()
-      },
-      {
-        id: 'grentperez',
-        name: 'Grentperez',
-        description: 'Grentperez is an Australian singer-songwriter known for his warm voice and soulful pop sound. His songs often mix gentle guitar melodies with heartfelt lyrics about love and life.',
-        song: 'Cherry Wine',
-        votes: randomVotes()
-      },
-      {
-        id: 'anri',
-        name: 'Anri',
-        description: 'Anri is a Japanese singer known for her city pop style that became popular in the 1980s. Her music features smooth vocals, jazzy instrumentals, and upbeat rhythms that capture a nostalgic summer feeling.',
-        song: 'Remember Summer Days',
-        votes: randomVotes()
-      },
-      {
-        id: 'rex',
-        name: 'Rex Orange County',
-        description: 'Rex Orange County is a British singer-songwriter known for his blend of indie pop, soul, and jazz influences. His songs often explore emotions, relationships, and self-discovery with a warm and honest tone.',
-        song: 'Best Friend',
-        votes: randomVotes()
-      },
-      {
-        id: 'daniel',
-        name: 'Daniel Caesar',
-        description: 'Daniel Caesar is a Canadian singer-songwriter known for his smooth R&B sound and soulful voice. His music often explores themes of love, faith, and personal growth.',
-        song: 'Best Part',
-        votes: randomVotes()
-      }
-    ];
-
-    function renderArtists() {
-      const list = document.getElementById('artistList');
-      list.innerHTML = '';
-      artists.sort((a, b) => b.votes - a.votes);
-      artists.forEach((artist, index) => {
-        const item = document.createElement('div');
-        item.className = 'artist-list';
-        item.innerHTML = `
-          <h2>${index + 1}. ${artist.name}</h2>
-          <p>${artist.description}</p>
-          <p><strong>Most Streamed Song:</strong> "${artist.song}"</p>
-          <button class="vote-button" onclick="voteForArtist('${artist.id}')">Vote</button>
-          <span class="votes">Votes: ${artist.votes}</span>
-        `;
-        list.appendChild(item);
-      });
-    }
-
-    function voteForArtist(id) {
-      const artist = artists.find(a => a.id === id);
-      artist.votes++;
-      renderArtists();
-    }
-
-    renderArtists();
   </script>
 </body>
 </html>
+     
